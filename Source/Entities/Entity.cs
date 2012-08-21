@@ -16,9 +16,13 @@
         /// <summary>
         /// When the entity was created
         /// </summary>
-        public DateTime CreationTime {
+        public DateTime? CreationTime {
             get {
-                return new ObjectId(this.Id).CreationTime;
+                if (string.IsNullOrWhiteSpace(this.Id)) {
+                    return null;
+                } else {
+                    return new ObjectId(this.Id).CreationTime;
+                }
             }
         }
 

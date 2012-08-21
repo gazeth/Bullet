@@ -34,6 +34,23 @@
         IList<T> All();
 
         /// <summary>
+        /// Paged list of T
+        /// </summary>
+        /// <param name="page">The page of documents to return</param>
+        /// <param name="take">The page size, no. of documents to return</param>
+        /// <returns>List of T</returns>
+        IList<T> All(int page, int take);
+
+        /// <summary>
+        /// Paged list of T
+        /// </summary>
+        /// <param name="skip">The number of documents to skip (page)</param>
+        /// <param name="take">The page size, no. of documents to return</param>
+        /// <param name="sort">Property to sort the results by</param>
+        /// <returns>List of T</returns>
+        IList<T> All(int skip, int take, Func<T, string> sort);
+
+        /// <summary>
         /// Returns all the documents of T that match the criteria passed in
         /// </summary>
         /// <param name="criteria">The criteria to match against</param>

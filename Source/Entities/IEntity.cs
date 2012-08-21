@@ -17,6 +17,6 @@
         /// <summary>
         /// When the entity was created
         /// </summary>
-        DateTime CreationTime { get; }
+        DateTime? CreationTime { get; }
     }
 }
