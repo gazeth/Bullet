@@ -210,6 +210,18 @@
         }
 
         /// <summary>
+        /// Increment the property by the amount specified
+        /// </summary>
+        /// <param name="entity">The entity to update</param>
+        /// <param name="property">which property to update</param>
+        /// <param name="by">The amount the increment by</param>
+        /// <returns>The updated entity</returns>
+        public T Increment(T entity, Expression<Func<T, double>> property, double by) {
+            return this.collection.FindAndModify(Query.EQ("_id", new ObjectId(entity.Id)), null, new UpdateBuilder<T>().Inc(property, by)).GetModifiedDocumentAs<T>();
+        }
+
+
+        /// <summary>
         /// Creates and returns a MongoDatabase from the specified url.
         /// </summary>
         /// <param name="url">The url of the database</param>

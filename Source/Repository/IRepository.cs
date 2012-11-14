@@ -125,5 +125,14 @@
         /// <param name="criteria">The criteria to match against</param>
         /// <returns>bool</returns>
         bool Exists(Expression<Func<T, bool>> criteria);
+
+        /// <summary>
+        /// Increment the property by the amount specified
+        /// </summary>
+        /// <param name="entity">The entity to update</param>
+        /// <param name="property">which property to update</param>
+        /// <param name="by">The amount the increment by</param>
+        /// <returns>The updated entity</returns>
+        T Increment(T entity, Expression<Func<T, double>> property, double by);
     }
 }
